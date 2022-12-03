@@ -48,10 +48,13 @@ fn help() {
 // Includes obtaining the input file for the day, calling the solve method of the part of the day and returning the result
 fn solve(day: usize, part: &String) -> Result<String, String> {
     // Obtain file and read from it
-    let input = match std::fs::read_to_string(format!("./input/{:0>2}.txt", day)) {
+    let mut input = match std::fs::read_to_string(format!("./input/{:0>2}.txt", day)) {
         Ok(content) => content,
         Err(_) => return Err("Error reading input file".to_string()),
     };
+
+    // Remove last /n
+    input.pop();
 
     let part_index: usize = match part.as_str() {
         "a" => 0,

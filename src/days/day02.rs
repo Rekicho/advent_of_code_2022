@@ -30,20 +30,14 @@ fn get_score(shape_a: char, shape_b: char, part: char) -> u32 {
     match part {
         'a' => SHAPES_TO_SCORE.with(|map| map.get(&(shape_a, shape_b)).copied().unwrap_or(0)),
         'b' => SHAPE_RESULT_TO_SCORE.with(|map| map.get(&(shape_a, shape_b)).copied().unwrap_or(0)),
-        _ => 0,
+        _ => 0, // Shouldn't happen
     }
 }
 
 pub fn solve_a(input: String) -> Result<String, String> {
     let res: u32 = input
         .split("\n")
-        .map(|x| {
-            get_score(
-                x.chars().nth(0).unwrap_or(' '),
-                x.chars().nth(2).unwrap_or(' '),
-                'a',
-            )
-        })
+        .map(|x| get_score(x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap(), 'a'))
         .sum();
 
     Ok(res.to_string())
@@ -52,13 +46,7 @@ pub fn solve_a(input: String) -> Result<String, String> {
 pub fn solve_b(input: String) -> Result<String, String> {
     let res: u32 = input
         .split("\n")
-        .map(|x| {
-            get_score(
-                x.chars().nth(0).unwrap_or(' '),
-                x.chars().nth(2).unwrap_or(' '),
-                'b',
-            )
-        })
+        .map(|x| get_score(x.chars().nth(0).unwrap(), x.chars().nth(2).unwrap(), 'b'))
         .sum();
 
     Ok(res.to_string())
