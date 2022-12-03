@@ -7,8 +7,8 @@ with the input and prints the result!
 
 ## Progress
 
-- [ ] Day 01
-- [ ] Day 02
+- [x] Day 01
+- [x] Day 02
 - [ ] Day 03
 - [ ] Day 04
 - [ ] Day 05
