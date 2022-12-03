@@ -1,7 +1,7 @@
-// For now, just a simple program that takes day and part from CLI args,
-// reads the input from file, runs the program with the input and prints results
 mod days;
 
+// For now, just a simple program that takes day and part from CLI args,
+// reads the input from file, runs the program with the input and prints results
 fn main() {
     let args: Vec<String> = std::env::args().collect();
 
@@ -53,13 +53,12 @@ fn solve(day: usize, part: &String) -> Result<String, String> {
         Err(_) => return Err("Error reading input file".to_string()),
     };
 
-    let days_mapping = vec![[days::day01::solve_a, days::day01::solve_b]];
     let part_index: usize = match part.as_str() {
         "a" => 0,
         "b" => 1,
         _ => return Err(format!("Invalid part: {part}")),
     };
-    match days_mapping.get(day - 1) {
+    match days::SOLUTION_MAPPING.get(day - 1) {
         Some(parts) => match parts.get(part_index) {
             Some(solution) => solution(input),
             None => Err(format!("Solution not found for part {part} of day {day}")),
