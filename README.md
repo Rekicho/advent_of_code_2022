@@ -2,8 +2,28 @@
 
 Here are my solution for Advent of Code 2022 - in Rust!
 
-For now, this is just a simple program that calls the respective day and part
-with the input and prints the result!
+## Usage
+
+```
+cargo run <DAY> <PART>
+```
+
+where we want to solve PART (`a` for first part, `b` for second) of the problem of the DAY.
+
+Example:
+
+```
+cargo run 1 a
+```
+
+This "program" allow to run code to solve a part of a given day and includes:
+- Reading input from file in `input` folder (expected name is `{DAY}.txt`)
+- Calling the respective method for a given day and part.
+  Solutions should be placed in `days` folder with `day{DAY:0>2}.rs` name.
+  The method to solve the first part should be called `solve_a` for the first part and `solve_b` for the second.
+  The method should receive one argument with the input as a String and return a Result with a String indication
+  the problem solution (if the problem was solved) or with an error string to be output explaining what error happened.
+- Outputing the solution and the time taken by the solving method (if it returned an Ok result)
 
 ## Progress
 
@@ -11,7 +31,7 @@ with the input and prints the result!
 - [x] Day 02
 - [x] Day 03
 - [x] Day 04
-- [ ] Day 05
+- [x] Day 05
 - [ ] Day 06
 - [ ] Day 07
 - [ ] Day 08

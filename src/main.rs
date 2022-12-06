@@ -48,6 +48,7 @@ fn help() {
 
 // Solve a given part of a given day
 // Includes obtaining the input file for the day, calling the solve method of the part of the day and returning the result
+// Also outputs the time taken to solve the problem
 fn solve(day: usize, part: &String) -> Result<String, String> {
     // Obtain file and read from it
     let mut input = match std::fs::read_to_string(format!("./input/{day:0>2}.txt")) {
