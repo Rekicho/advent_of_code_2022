@@ -27,8 +27,8 @@ This "program" allow to run code to solve a part of a given day and includes:
 
 ## Performance
 
-Time taken to complete each part of each day. 
-Very unreliable times calculated by averaging 10 runs of each part, 
+Time taken to complete each part of each day.
+Very unreliable times calculated by averaging 10 runs of each part,
 which were run on my PC while I was listening to music and had N Firefox tabs open :)
 
 |Day|First Part|Second Part|
@@ -38,7 +38,7 @@ which were run on my PC while I was listening to music and had N Firefox tabs op
 |03|251µs|300µs|
 |04|319µs|297µs|
 |05|139µs|198µs|
-|06|||
+|06|222µs|930µs|
 |07|||
 |08|||
 |09|||
