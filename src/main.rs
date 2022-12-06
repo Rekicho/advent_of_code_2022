@@ -65,7 +65,14 @@ fn solve(day: usize, part: &String) -> Result<String, String> {
     };
     match days::SOLUTION_MAPPING.get(day - 1) {
         Some(parts) => match parts.get(part_index) {
-            Some(solution) => solution(input),
+            Some(solve_function) => {
+                let now = std::time::Instant::now();
+                let solution = solve_function(input);
+                let time_taken = now.elapsed();
+
+                println!("Time taken: {time_taken:.2?}");
+                solution
+            }
             None => Err(format!("Solution not found for part {part} of day {day}")),
         },
         None => Err(format!("Solution not found for day {day}")),
