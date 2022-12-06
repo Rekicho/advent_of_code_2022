@@ -26,7 +26,7 @@ fn get_priority(item: char) -> u32 {
 
 pub fn solve_a(input: String) -> Result<String, String> {
     let res: u32 = input
-        .split("\n")
+        .split('\n')
         .map(|x| get_priority(get_repeated_item(x)))
         .sum();
 
@@ -36,15 +36,15 @@ pub fn solve_a(input: String) -> Result<String, String> {
 fn get_common_item_in_group(group: [&str; 3]) -> char {
     let mut seen = HashSet::new();
 
-    for i in 0..group.len() {
+    for (i, line) in group.iter().enumerate() {
         if i == 0 {
-            for item in group[i].chars() {
+            for item in line.chars() {
                 seen.insert(item);
             }
         } else {
             let mut new_seen = HashSet::new();
 
-            for item in group[i].chars() {
+            for item in line.chars() {
                 if seen.contains(&item) {
                     new_seen.insert(item);
                 }
@@ -59,7 +59,7 @@ fn get_common_item_in_group(group: [&str; 3]) -> char {
 
 pub fn solve_b(input: String) -> Result<String, String> {
     let res: u32 = input
-        .split("\n")
+        .split('\n')
         .into_iter()
         .array_chunks::<3>()
         .map(|x| get_priority(get_common_item_in_group(x)))

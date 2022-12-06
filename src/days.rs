@@ -25,7 +25,9 @@ pub mod day24;
 pub mod day25;
 
 // Mapping from day:part to actual solution code
-pub const SOLUTION_MAPPING: [[fn(String) -> Result<String, String>; 2]; 25] = [
+type SolveFunction = fn(String) -> Result<String, String>;
+
+pub const SOLUTION_MAPPING: [[SolveFunction; 2]; 25] = [
     [day01::solve_a, day01::solve_b],
     [day02::solve_a, day02::solve_b],
     [day03::solve_a, day03::solve_b],

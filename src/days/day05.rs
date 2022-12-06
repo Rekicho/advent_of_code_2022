@@ -1,15 +1,17 @@
+type Instruction = (usize, usize, usize);
+
 pub fn parse_stacks(input: &str) -> Vec<Vec<char>> {
     let mut stacks: Vec<Vec<char>> = Vec::new();
 
     // Traverse "stack lines" from last to first so:
     // - We know the number of stacks
     // - We can build a LIFO stack (i. e. element in top-most line is the last one to be inserted in the stack)
-    let stacks_lines: Vec<&str> = input.rsplit("\n").collect();
+    let stacks_lines: Vec<&str> = input.rsplit('\n').collect();
 
     // Obtain the number of stacks by looking at the last digit
     let mut num_stacks: usize = 0; // Shouldn't be needed, because according to the input there will always be digits in the "first" line
     for ch in stacks_lines[0].chars().rev() {
-        if ch.is_digit(10) {
+        if ch.is_ascii_digit() {
             num_stacks = usize::try_from(ch.to_digit(10).unwrap()).unwrap();
             break;
         }
@@ -37,11 +39,11 @@ pub fn parse_stacks(input: &str) -> Vec<Vec<char>> {
     stacks
 }
 
-fn parse_instructions(input: &str) -> Vec<(usize, usize, usize)> {
+fn parse_instructions(input: &str) -> Vec<Instruction> {
     input
-        .split("\n")
+        .split('\n')
         .map(|x| {
-            let instruction_parts: Vec<&str> = x.split(" ").collect();
+            let instruction_parts: Vec<&str> = x.split(' ').collect();
             (
                 instruction_parts[1].parse::<usize>().unwrap(),
                 instruction_parts[3].parse::<usize>().unwrap(),
@@ -51,7 +53,7 @@ fn parse_instructions(input: &str) -> Vec<(usize, usize, usize)> {
         .collect()
 }
 
-pub fn parse_input(input: String) -> (Vec<Vec<char>>, Vec<(usize, usize, usize)>) {
+pub fn parse_input(input: String) -> (Vec<Vec<char>>, Vec<Instruction>) {
     let parts: Vec<&str> = input.split("\n\n").collect();
     let stacks = parse_stacks(parts[0]);
     let instructons = parse_instructions(parts[1]);

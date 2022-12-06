@@ -16,7 +16,7 @@ fn main() {
                     return;
                 }
                 Ok(value) if !(1..26).contains(&value) => {
-                    eprintln!("Error parsing day \"{}\": Not a valid day", value);
+                    eprintln!("Error parsing day \"{value}\": Not a valid day");
                     return;
                 }
                 Ok(value) => value,
@@ -31,8 +31,8 @@ fn main() {
             };
 
             match solve(day, part) {
-                Ok(solution) => println!("{}", solution),
-                Err(error) => eprintln!("{}", error),
+                Ok(solution) => println!("{solution}"),
+                Err(error) => eprintln!("{error}"),
             };
         }
         _ => {
@@ -50,7 +50,7 @@ fn help() {
 // Includes obtaining the input file for the day, calling the solve method of the part of the day and returning the result
 fn solve(day: usize, part: &String) -> Result<String, String> {
     // Obtain file and read from it
-    let mut input = match std::fs::read_to_string(format!("./input/{:0>2}.txt", day)) {
+    let mut input = match std::fs::read_to_string(format!("./input/{day:0>2}.txt")) {
         Ok(content) => content,
         Err(_) => return Err("Error reading input file".to_string()),
     };

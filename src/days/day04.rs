@@ -1,7 +1,7 @@
 fn get_pairs(line: &str) -> ((u32, u32), (u32, u32)) {
-    let pairs: Vec<&str> = line.split(",").collect();
-    let first_assigment: Vec<&str> = pairs[0].split("-").collect();
-    let second_assigment: Vec<&str> = pairs[1].split("-").collect();
+    let pairs: Vec<&str> = line.split(',').collect();
+    let first_assigment: Vec<&str> = pairs[0].split('-').collect();
+    let second_assigment: Vec<&str> = pairs[1].split('-').collect();
 
     (
         (
@@ -37,7 +37,7 @@ fn is_overlapping(pair: ((u32, u32), (u32, u32))) -> u32 {
 
 pub fn solve_a(input: String) -> Result<String, String> {
     let res: u32 = input
-        .split("\n")
+        .split('\n')
         .map(|x| is_fully_contained(get_pairs(x)))
         .sum();
 
@@ -46,7 +46,7 @@ pub fn solve_a(input: String) -> Result<String, String> {
 
 pub fn solve_b(input: String) -> Result<String, String> {
     let res: u32 = input
-        .split("\n")
+        .split('\n')
         .map(|x| is_overlapping(get_pairs(x)))
         .sum();
 
