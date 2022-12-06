@@ -25,30 +25,36 @@ This "program" allow to run code to solve a part of a given day and includes:
   the problem solution (if the problem was solved) or with an error string to be output explaining what error happened.
 - Outputing the solution and the time taken by the solving method (if it returned an Ok result)
 
-## Progress
+## Performance
 
-- [x] Day 01
-- [x] Day 02
-- [x] Day 03
-- [x] Day 04
-- [x] Day 05
-- [ ] Day 06
-- [ ] Day 07
-- [ ] Day 08
-- [ ] Day 09
-- [ ] Day 10
-- [ ] Day 11
-- [ ] Day 12
-- [ ] Day 13
-- [ ] Day 14
-- [ ] Day 15
-- [ ] Day 16
-- [ ] Day 17
-- [ ] Day 18
-- [ ] Day 19
-- [ ] Day 20
-- [ ] Day 21
-- [ ] Day 22
-- [ ] Day 23
-- [ ] Day 24
-- [ ] Day 25
+Time taken to complete each part of each day. 
+Very unreliable times calculated by averaging 10 runs of each part, 
+which were run on my PC while I was listening to music and had N Firefox tabs open :)
+
+|Day|First Part|Second Part|
+|:-:|:--------:|:---------:|
+|01|45µs|67µs|
+|02|75µs|72µs|
+|03|251µs|300µs|
+|04|319µs|297µs|
+|05|139µs|198µs|
+|06|||
+|07|||
+|08|||
+|09|||
+|10|||
+|11|||
+|12|||
+|13|||
+|14|||
+|15|||
+|16|||
+|17|||
+|18|||
+|19|||
+|20|||
+|21|||
+|22|||
+|23|||
+|24|||
+|25|||
