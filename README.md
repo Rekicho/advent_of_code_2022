@@ -39,7 +39,7 @@ which were run on my PC while I was listening to music and had N Firefox tabs op
 |04|319µs|297µs|
 |05|139µs|198µs|
 |06|222µs|930µs|
-|07|||
+|07|1.09ms|1.10ms|
 |08|||
 |09|||
 |10|||

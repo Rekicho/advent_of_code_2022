@@ -56,7 +56,7 @@ fn solve(day: usize, part: &String) -> Result<String, String> {
         Err(_) => return Err("Error reading input file".to_string()),
     };
 
-    // Remove last /n
+    // Remove last \n
     input.pop();
 
     let part_index: usize = match part.as_str() {
