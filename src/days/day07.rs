@@ -17,7 +17,7 @@ fn build_directories(input: String) -> HashMap<String, Directory> {
 
     for instruction in instructions {
         // Ignore first instruction as, they way we are spliting, it will be empty
-        if instruction.len() == 0 {
+        if instruction.is_empty() {
             continue;
         }
 
@@ -34,10 +34,10 @@ fn build_directories(input: String) -> HashMap<String, Directory> {
                     }
                 }
                 val => {
-                    if current_pwd.len() == 0 || current_pwd.ends_with('/') {
+                    if current_pwd.is_empty() || current_pwd.ends_with('/') {
                         current_pwd.push_str(val);
                     } else {
-                        current_pwd.push_str(&format!("/{}", val)[..]);
+                        current_pwd.push_str(&format!("/{val}")[..]);
                     }
 
                     if !directories.contains_key(&current_pwd) {
@@ -83,7 +83,7 @@ pub fn solve_a(input: String) -> Result<String, String> {
         .map(|directory_path| {
             // O(n^2) :scream:
             directories.iter().fold(0, |acc, (x_path, x_directory)| {
-                acc + if x_path.starts_with(&*directory_path) {
+                acc + if x_path.starts_with(directory_path) {
                     get_directory_direct_size(x_directory.clone().1)
                 } else {
                     0
@@ -102,7 +102,7 @@ pub fn solve_b(input: String) -> Result<String, String> {
         .map(|directory_path| {
             // O(n^2) :scream:
             directories.iter().fold(0, |acc, (x_path, x_directory)| {
-                acc + if x_path.starts_with(&*directory_path) {
+                acc + if x_path.starts_with(directory_path) {
                     get_directory_direct_size(x_directory.clone().1)
                 } else {
                     0
